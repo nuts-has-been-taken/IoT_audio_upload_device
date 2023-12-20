@@ -4,7 +4,7 @@ from util.mp3_to_base import mp3_to_base64
 def upload_audio_to_iottalk(audio:_TemporaryFileWrapper):
     
     try:
-        if audio.name[-4:] != "mp3":
+        if audio.name[-3:] != "mp3":
             return f"{audio.name}",f"Only support mp3 file"
         
         base64_string = mp3_to_base64(audio)
