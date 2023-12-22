@@ -5,6 +5,8 @@ import base64
 def mp3_to_base64(file:_TemporaryFileWrapper):
     try:
         mp3_binary_data = file.read()
+        print("type of mp3 file : {}".format(type(mp3_binary_data)))
+        print("length of mp3 file : {}".format(len(mp3_binary_data)))
         
         base64_encoded = base64.b64encode(mp3_binary_data)
         

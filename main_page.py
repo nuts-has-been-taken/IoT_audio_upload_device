@@ -2,8 +2,9 @@ from dotenv import load_dotenv
 load_dotenv()
 
 import gradio as gr
-from service.upload_audio import upload_audio_to_iottalk
+from service import upload_audio, register
 
+register.register()
 
 with gr.Blocks() as upload_page:
     gr.Markdown("""
@@ -13,7 +14,7 @@ with gr.Blocks() as upload_page:
     file_output = gr.File(interactive=False, file_types=["file"], label="上傳 MP3 檔案")
     upload_button = gr.UploadButton("上傳檔案", file_types=["file"])
     upload_messagebox = gr.Textbox(label="上傳結果", info="顯示上傳情況")
-    upload_button.upload(upload_audio_to_iottalk, upload_button, [file_output, upload_messagebox])
+    upload_button.upload(upload_audio.upload_audio_to_iottalk, upload_button, [file_output, upload_messagebox])
 
 iface = gr.TabbedInterface([upload_page], ["上傳頁面"])
 iface.launch(server_name="0.0.0.0")
