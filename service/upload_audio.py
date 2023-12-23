@@ -17,6 +17,8 @@ def upload_audio_to_iottalk(audio:_TemporaryFileWrapper):
         print("string length : {}".format(len(base64_string)))
 
         ### 上傳到 iottalk
+        print(IDF_list)
+        print(IDF_funcs)
         for idf in IDF_list:
             if not IDF_funcs.get(idf):
                 print('IDF function "{}" is not existed.'.format(idf))
