@@ -1,15 +1,15 @@
 from tempfile import _TemporaryFileWrapper
 import base64
 
-# mp3 轉換成 string
-def mp3_to_base64(file:_TemporaryFileWrapper):
+# mp3 or m4a 轉換成 string
+def m4a_to_base64(file:_TemporaryFileWrapper):
     try:
-        with open(file.name, 'rb') as mp3_file:
-            mp3_binary_data = mp3_file.read()
-            print("type of mp3 file : {}".format(type(mp3_binary_data)))
-            print("length of mp3 file : {}".format(len(mp3_binary_data)))
+        with open(file.name, 'rb') as audio_file:
+            audio_binary_data = audio_file.read()
+            print("type of audio file : {}".format(type(audio_binary_data)))
+            print("length of audio file : {}".format(len(audio_binary_data)))
             
-            base64_encoded = base64.b64encode(mp3_binary_data)
+            base64_encoded = base64.b64encode(audio_binary_data)
             
             base64_string = base64_encoded.decode('utf-8')
         

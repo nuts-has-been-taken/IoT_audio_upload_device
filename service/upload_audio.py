@@ -1,6 +1,6 @@
 import time
 from tempfile import _TemporaryFileWrapper
-from util.mp3_to_base import mp3_to_base64
+from util.audio_to_base import m4a_to_base64
 
 from service import DAN
 
@@ -9,10 +9,11 @@ from service.register import IDF_list, IDF_funcs
 def upload_audio_to_iottalk(audio:_TemporaryFileWrapper):
     
     try:
-        if audio.name[-3:] != "mp3":
-            return f"{audio.name}",f"Only support mp3 file"
+        audio_file_type = audio.name[-3:]
+        if audio_file_type != "mp3" and audio_file_type != "m4a":
+            return f"{audio.name}",f"Only support mp3 or m4a file"
         
-        base64_string = mp3_to_base64(audio)
+        base64_string = m4a_to_base64(audio)
 
         print("string length : {}".format(len(base64_string)))
 
