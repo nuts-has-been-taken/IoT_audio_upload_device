@@ -5,11 +5,11 @@ MQTT_encryption = True
 MQTT_User = 'iottalk'
 MQTT_PW = 'iottalk2023'
 
-device_model = 'audio'
+device_model = 'Music_to_Video'
 IDF_list = ['MP3_I']
 ODF_list = []
-device_id = '31283301712221614' #if None, device_id = MAC address
-device_name = 'eden_device'
+device_id = '31283301712261323' #if None, device_id = MAC address
+device_name = 'recorder'
 exec_interval = 1  # IDF/ODF interval
 
 def on_register(r):
